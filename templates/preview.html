@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aadhar Details</title>
+    <style>
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: inline-block;
+            width: 120px;
+            font-weight: bold;
+        }
+        .form-group input {
+            width: 300px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Aadhhar Details</h1>
+    
+    <!-- Display uploaded image -->
+    <div class="image-container">
+        <h3>Uploaded aadhar card</h3>
+        <img src="{{ image_url }}" alt="Uploaded Image" style="max-width: 400px;">
+    </div>
+
+    <!-- Display extracted photo if available -->
+    {% if photo_url %}
+    <div class="photo-container">
+        <h3>Profile Photo</h3>
+        <img src="{{ photo_url }}" alt="Extracted Photo" style="max-width: 200px;">
+        <input type="hidden" name="photo_url" value="{{ photo_url }}">
+    </div>
+    {% endif %}
+
+    <h2>Profile Details</h2>
+    <form action="/save" method="post">
+        <div class="form-group">
+            <label for="full_name">Full Name:</label>
+            <input type="text" id="full_name" name="full_name" value="{{ full_name }}" required>
+        </div>
+        <div class="form-group">
+            <label for="date_of_birth">Date of Birth:</label>
+            <input type="text" id="date_of_birth" name="date_of_birth" value="{{ date_of_birth }}" required>
+        </div>
+        <div class="form-group">
+            <label for="sex">Sex:</label>
+            <input type="text" id="sex" name="sex" value="{{ sex }}" required>
+        </div>
+        <div class="form-group">
+            <label for="aadhaar_number">Aadhaar Number:</label>
+            <input type="text" id="aadhaar_number" name="aadhaar_number" value="{{ aadhaar_number }}" required>
+        </div>
+        <button type="submit">Save to Database</button>
+    </form>
+    <a href="/">Go back to upload page</a>
+</body>
+</html>

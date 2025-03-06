@@ -1,0 +1,39 @@
+<!-- d scanner/templates/error.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <style>
+        .error-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #ff0000;
+            border-radius: 5px;
+        }
+        .error-message {
+            color: #ff0000;
+            margin-bottom: 20px;
+        }
+        .back-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <h1>Error</h1>
+        <div class="error-message">
+            {{ message }}
+        </div>
+        <a href="{{ url_for('index') }}" class="back-button">Go Back</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+
+mysql-connector-python
+easyocr
+opencv-python
+numpy
+pillow
+matplotlib
+scipy
+pytesseract
+Flask
+Flask-SQLAlchemy

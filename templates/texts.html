@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stored Texts</title>
+</head>
+<body>
+    <h1>Stored Texts</h1>
+    <ul>
+        {% for text in texts %}
+            <li>
+                <strong>Full Name:</strong> {{ text[0] }}<br>
+                <strong>Date of Birth:</strong> {{ text[1] }}<br>
+                <strong>Sex:</strong> {{ text[2] }}<br>
+                <strong>Aadhaar Number:</strong> {{ text[3] }}<br>
+                <strong>Extracted Text:</strong> {{ text[4] }}
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="/">Go back to upload page</a>
+</body>
+</html>
