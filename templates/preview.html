@@ -5,58 +5,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aadhar Details</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: auto;
+        }
+        .image-container, .photo-container {
+            margin-bottom: 20px;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
         .form-group {
             margin-bottom: 15px;
+            text-align: left;
         }
         .form-group label {
-            display: inline-block;
-            width: 120px;
+            display: block;
             font-weight: bold;
         }
         .form-group input {
-            width: 300px;
-            padding: 5px;
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background: #007bff;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        a {
+            display: block;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #007bff;
+        }
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <h1>Aadhhar Details</h1>
-    
-    <!-- Display uploaded image -->
-    <div class="image-container">
-        <h3>Uploaded aadhar card</h3>
-        <img src="{{ image_url }}" alt="Uploaded Image" style="max-width: 400px;">
-    </div>
+    <div class="container">
+        <h1>Aadhar Details</h1>
+        
+        <div class="image-container">
+            <h3>Uploaded Aadhar Card</h3>
+            <img src="{{ image_url }}" alt="Uploaded Image">
+        </div>
 
-    <!-- Display extracted photo if available -->
-    {% if photo_url %}
-    <div class="photo-container">
-        <h3>Profile Photo</h3>
-        <img src="{{ photo_url }}" alt="Extracted Photo" style="max-width: 200px;">
-        <input type="hidden" name="photo_url" value="{{ photo_url }}">
-    </div>
-    {% endif %}
+        {% if photo_url %}
+        <div class="photo-container">
+            <h3>Profile Photo</h3>
+            <img src="{{ photo_url }}" alt="Extracted Photo">
+            <input type="hidden" name="photo_url" value="{{ photo_url }}">
+        </div>
+        {% endif %}
 
-    <h2>Profile Details</h2>
-    <form action="/save" method="post">
-        <div class="form-group">
-            <label for="full_name">Full Name:</label>
-            <input type="text" id="full_name" name="full_name" value="{{ full_name }}" required>
-        </div>
-        <div class="form-group">
-            <label for="date_of_birth">Date of Birth:</label>
-            <input type="text" id="date_of_birth" name="date_of_birth" value="{{ date_of_birth }}" required>
-        </div>
-        <div class="form-group">
-            <label for="sex">Sex:</label>
-            <input type="text" id="sex" name="sex" value="{{ sex }}" required>
-        </div>
-        <div class="form-group">
-            <label for="aadhaar_number">Aadhaar Number:</label>
-            <input type="text" id="aadhaar_number" name="aadhaar_number" value="{{ aadhaar_number }}" required>
-        </div>
-        <button type="submit">Save to Database</button>
-    </form>
-    <a href="/">Go back to upload page</a>
+        <h2>Profile Details</h2>
+        <form action="/save" method="post">
+            <div class="form-group">
+                <label for="full_name">Full Name:</label>
+                <input type="text" id="full_name" name="full_name" value="{{ full_name }}" required>
+            </div>
+            <div class="form-group">
+                <label for="date_of_birth">Date of Birth:</label>
+                <input type="text" id="date_of_birth" name="date_of_birth" value="{{ date_of_birth }}" required>
+            </div>
+            <div class="form-group">
+                <label for="sex">Sex:</label>
+                <input type="text" id="sex" name="sex" value="{{ sex }}" required>
+            </div>
+            <div class="form-group">
+                <label for="aadhaar_number">Aadhaar Number:</label>
+                <input type="text" id="aadhaar_number" name="aadhaar_number" value="{{ aadhaar_number }}" required>
+            </div>
+            <button type="submit">Save to Database</button>
+        </form>
+        <a href="/">Go back to upload page</a>
+    </div>
 </body>
 </html>

@@ -3,47 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <title>Manual Input</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        h1, h3 {
+            color: #333;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .image-container, .photo-container {
+            margin-bottom: 20px;
+        }
+        img {
+            border-radius: 8px;
+            max-width: 100%;
+            height: auto;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: left;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px;
+            background: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #218838;
+        }
+    </style>
 </head>
 <body>
-    <h1>Manual Input</h1>
-    
-    <!-- Display uploaded image -->
-    <div class="image-container">
-        <h3>Uploaded Image</h3>
-        <img src="{{ image_url }}" alt="Uploaded Image" style="max-width: 400px;">
-    </div>
-
-    <!-- Display extracted photo if available -->
-    {% if photo_url %}
-    <div class="photo-container">
-        <h3>Extracted Photo</h3>
-        <img src="{{ photo_url }}" alt="Extracted Photo" style="max-width: 200px;">
-        <input type="hidden" name="photo_url" value="{{ photo_url }}">
-    </div>
-    {% endif %}
-
-    <form action="{{ url_for('save_text') }}" method="post">
-        <div>
+    <div class="container">
+        <h1>Manual Input</h1>
+        <div class="image-container">
+            <h3>Driving License</h3>
+            <img src="{{ image_url }}" alt="Uploaded Image">
+        </div>
+        {% if photo_url %}
+        <div class="photo-container">
+            <h3>Profile Photo</h3>
+            <img src="{{ photo_url }}" alt="Extracted Photo">
+            <input type="hidden" name="photo_url" value="{{ photo_url }}">
+        </div>
+        {% endif %}
+        <form action="{{ url_for('save_text') }}" method="post">
             <label for="full_name">Full Name:</label>
             <input type="text" id="full_name" name="full_name" required>
-        </div>
-        <div>
             <label for="date_of_birth">Date of Birth:</label>
             <input type="text" id="date_of_birth" name="date_of_birth" required>
-        </div>
-        <div>
             <label for="sex">Sex:</label>
             <input type="text" id="sex" name="sex" required>
-        </div>
-        <div>
             <label for="aadhaar_number">Aadhaar Number:</label>
             <input type="text" id="aadhaar_number" name="aadhaar_number" required>
-        </div>
-        <div>
             <label for="text">Extracted Text:</label>
             <textarea id="text" name="text" required></textarea>
-        </div>
-        <button type="submit">Save</button>
-    </form>
+            <button type="submit">Save</button>
+        </form>
+    </div>
 </body>
 </html>
