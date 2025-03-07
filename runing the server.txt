@@ -1,21 +1,28 @@
+
 open the project in vs code 
 
-step 1
+step - 1
+make a enviroment variable ----
+(run in comand line)
+py -3.10 -m venv myvenv
+
+step 2
 (run in comand line)
 myvenv\Scripts\activate
 
+step 3
 python -m pip install --upgrade pip
 
 
-step 2 
+step -4 
 download cuda 12.4 | website - https://developer.nvidia.com/cuda-12-4-0-download-archive
 (run in comand line)
 pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
 
-step 4
+step 5
 (run in comand line)
 pip install -r requirements.txt
 
-step 5
+step 6
 (run in comand line)
 app.py
